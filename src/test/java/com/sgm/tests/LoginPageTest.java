@@ -38,7 +38,7 @@ public class LoginPageTest {
 
     public void verifyInvalidLogin() {
 
-        loginPage.enterUserName("test"+Math.round(Math.random()+1)+"@test.com");
+        loginPage.enterUserName("Test"+Math.round(Math.random()+1)+"@test.com");
         loginPage.enterPassword("12345678");
         loginPage.clickLoginButton();
         Assert.assertEquals(loginPage.getInvalidLoginMessageText(), "Invalid Username, Kindly check again!");
