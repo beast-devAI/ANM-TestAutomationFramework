@@ -4,15 +4,14 @@ import com.sgm.base.Base;
 import com.sgm.factory.DriverFactory;
 import com.sgm.pages.LoginPage;
 import com.sgm.utils.ConfigReader;
+import com.sgm.utils.ExcelReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 public class LoginPageTest {
 
@@ -32,6 +31,17 @@ public class LoginPageTest {
         loginPage = base.fromBasePage();
 
     }
+
+
+    @DataProvider(name="SGM Login Data")
+
+    public String[][] userLoginData() throws IOException, ParseException {
+
+       return ExcelReader.getTestDataFromExcel();
+
+    }
+
+
 
 
     @Test(priority = 1)
@@ -60,6 +70,19 @@ public class LoginPageTest {
 
     }
 
+
+    @Test(priority = 3 , dataProvider = "SGM Login Data")
+
+    public void verifyMultipleValidLogin(String uname , String pwd, String accName) {
+
+        loginPage.enterUserName(uname);
+        loginPage.enterPassword(pwd);
+        loginPage.clickLoginButton();
+        Assert.assertTrue(loginPage.ifUserNameVisible());
+        log.info("Valid Login Test Passed");
+
+
+    }
 
     @AfterTest
 
