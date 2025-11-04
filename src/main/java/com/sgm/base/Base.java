@@ -32,36 +32,36 @@ public class Base {
 
 
 
-   public void doClick(String locator) {
+   public void doClick(By locator) {
 
-        driver.findElement(By.cssSelector(locator)).click();
-
-    }
-
-
-    public void doSendKeys(String locator, String value) {
-
-        driver.findElement(By.cssSelector(locator)).sendKeys(value);
+        driver.findElement(locator).click();
 
     }
 
 
-    public String getTextFromLocator(String locator) {
+    public void doSendKeys(By locator, String value) {
 
-        return driver.findElement(By.cssSelector(locator)).getText();
-
-    }
-
-   public boolean checkifElementDisplayed(String locator) {
-
-       return driver.findElement(By.cssSelector(locator)).isDisplayed();
+        driver.findElement(locator).sendKeys(value);
 
     }
 
 
-    public List <WebElement> getElementsFromLocator(String locator) {
+    public String getTextFromLocator(By locator) {
 
-       return driver.findElements(By.cssSelector(locator));
+        return driver.findElement(locator).getText();
+
+    }
+
+   public boolean checkifElementDisplayed(By locator) {
+
+       return driver.findElement(locator).isDisplayed();
+
+    }
+
+
+    public List <WebElement> getElementsFromLocator(By locator) {
+
+       return driver.findElements(locator);
     }
 
 

@@ -11,6 +11,13 @@ import java.time.Duration;
 
 public class LoginPage extends Base {
 
+    // OR (Object Repository)
+
+    private By loc_userName = By.cssSelector("input[formcontrolname='username']");
+    private By loc_pwd = By.cssSelector("input[formcontrolname='password']");
+    private By loc_btn = By.cssSelector("button[type='submit']");
+    private By loc_error_Message = By.cssSelector("div[class*='alert-danger']");
+    private By loc_AccountID = By.cssSelector("span.demo1");
 
     public LoginPage(WebDriver driver) {
 
@@ -19,11 +26,13 @@ public class LoginPage extends Base {
     }
 
 
+    // Page Actions
+
     // Enter username
 
     public void enterUserName(String uname) {
 
-        doSendKeys("input[formcontrolname='username']", uname);
+        doSendKeys(loc_userName, uname);
 
     }
 
@@ -31,7 +40,7 @@ public class LoginPage extends Base {
 
     public void enterPassword(String pwd) {
 
-        doSendKeys("input[formcontrolname='password']", pwd);
+        doSendKeys(loc_pwd, pwd);
     }
 
 
@@ -39,7 +48,7 @@ public class LoginPage extends Base {
 
     public void clickLoginButton() {
 
-        doClick("button[type='submit']");
+        doClick(loc_btn);
 
     }
 
@@ -48,13 +57,13 @@ public class LoginPage extends Base {
 
     public String getInvalidLoginMessageText() {
 
-        return getTextFromLocator("div[class*='alert-danger']");
+        return getTextFromLocator(loc_error_Message);
     }
 
 
     public boolean ifUserNameVisible() {
 
-        return checkifElementDisplayed("span.demo1");
+        return checkifElementDisplayed(loc_AccountID);
     }
 
 }

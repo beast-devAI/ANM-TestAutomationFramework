@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<suite>
+<suite name="signalmesh regression test suite">
+
+    <listeners>
+        <listener class-name="com.sgm.listeners.TestListener"> </listener>
+
+    </listeners>
+
+
+<test name="Login page test">
+
+    <classes>
+
+        <class name="com.sgm.tests.LoginPageTest"></class>
+
+    </classes>
 
 
 
-
-
+</test>
 
 
 

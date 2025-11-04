@@ -5,10 +5,13 @@ import com.sgm.factory.DriverFactory;
 import com.sgm.pages.LoginPage;
 import com.sgm.utils.ConfigReader;
 import com.sgm.utils.ExcelReader;
+import com.sgm.utils.TestUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.internal.TestResult;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -18,7 +21,11 @@ public class LoginPageTest {
     Base base;
     LoginPage loginPage;
 
+    WebDriver driver;
+
     Logger log= LogManager.getLogger(this.getClass().getName());
+
+
 
 
     @BeforeMethod
@@ -26,7 +33,8 @@ public class LoginPageTest {
     public void setup() throws IOException {
 
         ConfigReader.init_property();
-        base=new Base(new DriverFactory().get_Driver());
+        driver=new DriverFactory().get_Driver();
+        base=new Base(driver);
         base.initialization();
         loginPage = base.fromBasePage();
 
@@ -83,6 +91,24 @@ public class LoginPageTest {
 
 
     }
+
+    @AfterMethod
+
+    public void onTestMethoFailure(TestResult result) throws IOException {
+
+        if(result.getStatus()==TestResult.FAILURE|result.getStatus()==TestResult.SKIP) {
+
+            TestUtils.takeScreenshotOnError(driver,result.getName());
+
+        }
+
+
+
+
+    }
+
+
+
 
     @AfterTest
 
