@@ -12,7 +12,7 @@ public class TestListener implements ITestListener {
     public void onTestStart(ITestResult result) {
         ITestListener.super.onTestStart(result);
 
-        System.out.println("Test is started : "+result.getTestClass().getTestName());
+        System.out.println("Test is started : "+result.getMethod().getMethodName());
 
     }
 
@@ -20,7 +20,7 @@ public class TestListener implements ITestListener {
     public void onTestSuccess(ITestResult result) {
         ITestListener.super.onTestSuccess(result);
 
-        System.out.println("Test is passed :");
+        System.out.println("Test is passed : "+result.getMethod().getMethodName());
 
     }
 
@@ -28,7 +28,7 @@ public class TestListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
 
-        System.out.println("Test is Failed :");
+        System.out.println("Test is failed : "+result.getMethod().getMethodName());
 
     }
 
@@ -36,7 +36,7 @@ public class TestListener implements ITestListener {
     public void onTestSkipped(ITestResult result) {
         ITestListener.super.onTestSkipped(result);
 
-        System.out.println("Test is skipped :");
+        System.out.println("Test is skipped : "+result.getMethod().getMethodName());
 
     }
 
@@ -45,7 +45,7 @@ public class TestListener implements ITestListener {
     public void onFinish(ITestContext context) {
         ITestListener.super.onFinish(context);
 
-        System.out.println("Test is finished : ");
+        System.out.println("Test is finished : "+context.getName());
 
     }
 

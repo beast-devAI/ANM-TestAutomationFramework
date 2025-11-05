@@ -1,0 +1,8 @@
+2025-11-04 20:42:47.227 INFO [main] [com.sgm.tests.LoginPageTest.verifyInvalidLogin(LoginPageTest.java:55)] - Invalid Login Test Passed
+2025-11-04 20:43:09.461 INFO [main] [com.sgm.tests.LoginPageTest.verifyMultipleValidLogin(LoginPageTest.java:82)] - Valid Login Test Passed
+2025-11-04 20:43:22.465 INFO [main] [com.sgm.tests.LoginPageTest.verifyMultipleValidLogin(LoginPageTest.java:82)] - Valid Login Test Passed
+2025-11-04 20:47:02.132 INFO [main] [com.sgm.tests.LoginPageTest.verifyInvalidLogin(LoginPageTest.java:55)] - Invalid Login Test Passed
+2025-11-04 20:47:15.887 INFO [main] [com.sgm.tests.LoginPageTest.verifyValidLogin(LoginPageTest.java:68)] - Valid Login Test Passed
+2025-11-04 20:47:26.436 INFO [main] [com.sgm.tests.LoginPageTest.verifyMultipleValidLogin(LoginPageTest.java:82)] - Valid Login Test Passed
+2025-11-04 20:47:37.333 INFO [main] [com.sgm.tests.LoginPageTest.verifyMultipleValidLogin(LoginPageTest.java:82)] - Valid Login Test Passed
+2025-11-04 21:30:49.179 INFO [main] [com.sgm.tests.LoginPageTest.verifyInvalidLogin(LoginPageTest.java:63)] - Invalid Login Test Passed

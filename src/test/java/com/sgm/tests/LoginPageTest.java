@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 import org.testng.internal.TestResult;
 
@@ -94,7 +95,7 @@ public class LoginPageTest {
 
     @AfterMethod
 
-    public void onTestMethoFailure(TestResult result) throws IOException {
+    public void onTestMethoFailure(ITestResult result) throws IOException {
 
         if(result.getStatus()==TestResult.FAILURE|result.getStatus()==TestResult.SKIP) {
 
@@ -114,6 +115,7 @@ public class LoginPageTest {
 
     public void tearDown() {
 
+        driver.quit();
 
     }
 
